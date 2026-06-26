@@ -87,28 +87,37 @@ const programs = [
 const team = [
   {
     name: "Polly Kosyla",
-    role: "President & Founder",
-    bio: "Northwestern University graduate with 12 years of direct nonprofit experience working with emotionally disturbed youth. Since 1988, she has advised over 300 nonprofits across Illinois and 10 additional states.",
+    role: "Founder",
+    bio: "Polly, a Northwestern University graduate with a background in Psychology and Education, has dedicated over 25 years to providing tailored insurance solutions for nonprofits. Leveraging her deep understanding of nonprofit operations, she supports over 300 organizations across multiple states, fostering sustainability and participating in their fundraising efforts.",
+    phone: "312.502.0023",
+    email: "polly@swolfways.com",
   },
   {
     name: "Charlie Kosyla",
-    role: "Vice President",
-    bio: "Leads business development and client onboarding, conducting intensive deep-dives into organizational missions, funding streams, and grant requirements to secure appropriate multi-carrier coverage portfolios.",
+    role: "President",
+    bio: "Charlie, the youngest agent at S. Wolf, brings fresh energy and a unique perspective from outside the insurance industry. His innovative approach to relationship building and commitment to understanding nonprofits' unique challenges make him a key part of their growth and success.",
+    phone: "773.870.5007",
+    email: "charlie@swolfways.com",
   },
   {
-    name: "Lester Palmiano",
-    role: "Account Executive",
-    bio: "Specializes in HR technology and employee benefits consulting. Former VP of the Peterson Garden Project, bringing firsthand nonprofit operational management experience.",
+    name: "Trey Elder",
+    role: "Nonprofit Benefit Specialist",
+    bio: "Trey Elder is a Chicago-based creative and community organizer with a diverse background in music, hospitality, and nonprofit work. He co-founded Royal Hands, a creative agency, and later launched Quiet Pterodactyl, a nonprofit supporting arts and music access. Elder has booked shows, run events, and promoted artists locally and internationally. He now works as a Benefits Agent with S. Wolf and Associates and serves on committees with the Andersonville Chamber of Commerce.",
+    phone: "773.531.8165",
+    email: "trey@swolfways.com",
   },
   {
-    name: "Jennifer Brown",
-    role: "Office Administrator",
-    bio: "Heads client relations and internal operations. True to the agency's client-first policy, the firm relies on live communication — no automated voicemail routing systems.",
+    name: "John Blockinger",
+    role: "Account Manager | Nonprofit Retention Specialist",
+    bio: "John Blockinger is the Service Manager for our Property and Casualty Insurance division, where he helps clients secure the best coverage and value. With a background in underwriting and marketing for several carriers, he brings deep industry knowledge to the table. John has built strong relationships with insurance providers and negotiates favorable terms on behalf of our clients. He also assists with policy updates and portfolio reviews. He holds the CPCU designation, recognizing his expertise in advanced insurance topics.",
+    phone: "773.332.7721",
+    email: "john@swolfways.com",
   },
   {
-    name: "Stanley Kosyla",
-    role: "Property Assessor",
-    bio: "Veteran general contractor with 25 years at AC Construction, providing specialized risk management inspections, property reviews, and field support for the Lend a Hand program.",
+    name: "Alex Averbach",
+    role: "Director of Operations",
+    bio: "Alex Averbach keeps the wheels turning. As our Director of Operations, she oversees systems, strategy, and efficiency across the board—ensuring everything runs smoothly, on time, and on budget. From streamlining workflows to managing contractors, Alex is the architect of our internal excellence. While she doesn't work directly with clients, her fingerprints are on every success. Think of her as the invisible engine behind our visible results.",
+    email: "alex@swolfways.com",
   },
 ];
 
@@ -128,20 +137,28 @@ const quoteSteps = [
 
 function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Header />
-      <Hero />
-      <About />
-      <Solutions />
-      <Approach />
-      <CarrierSection />
-      <Programs />
-      <Team />
-      <Stats />
-      <Quote />
-      <Contact />
-      <Footer />
-    </div>
+    <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-primary-foreground"
+      >
+        Skip to Main Content
+      </a>
+      <main id="main-content" className="min-h-screen bg-background text-foreground">
+        <Header />
+        <Hero />
+        <About />
+        <Solutions />
+        <Approach />
+        <CarrierSection />
+        <Programs />
+        <Team />
+        <Stats />
+        <Quote />
+        <Contact />
+        <Footer />
+      </main>
+    </>
   );
 }
 
@@ -378,13 +395,25 @@ function Team() {
   return (
     <section id="team" className="border-t border-border bg-card">
       <div className="container-page py-24">
-        <SectionHeading eyebrow="Leadership" title="The team behind your coverage." />
+        <SectionHeading eyebrow="Our Team" title="The people behind your coverage." />
         <div className="mt-12 grid gap-px overflow-hidden rounded-md bg-border md:grid-cols-2 lg:grid-cols-3">
           {team.map((p) => (
             <article key={p.name} className="bg-background p-8">
               <div className="font-serif text-xl">{p.name}</div>
               <div className="mt-1 text-xs uppercase tracking-[0.18em] text-[color:var(--color-gold)]">{p.role}</div>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{p.bio}</p>
+              <div className="mt-5 space-y-1 text-sm">
+                {p.phone && (
+                  <a href={`tel:${p.phone.replace(/\./g, "")}`} className="block text-foreground/80 hover:text-[color:var(--color-gold)]">
+                    {p.phone}
+                  </a>
+                )}
+                {p.email && (
+                  <a href={`mailto:${p.email}`} className="block text-foreground/80 hover:text-[color:var(--color-gold)]">
+                    {p.email}
+                  </a>
+                )}
+              </div>
             </article>
           ))}
         </div>
@@ -455,7 +484,7 @@ function Contact() {
   return (
     <section id="contact" className="border-t border-border">
       <div className="container-page py-24">
-        <SectionHeading eyebrow="Contact" title="Let's talk about your coverage." />
+        <SectionHeading eyebrow="Get in Touch" title="Let's talk about your coverage." />
         <div className="mt-12 grid gap-8 md:grid-cols-3">
           <ContactCard icon="📍" title="Visit Us" lines={["2338 W. Morse Ave, Suite 1C", "Chicago, IL 60645"]} />
           <ContactCard
@@ -472,11 +501,13 @@ function Contact() {
           />
         </div>
         <div className="mt-10 rounded-md border border-border bg-card p-8">
-          <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Direct leadership</div>
-          <div className="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sm">
-            <a className="hover:text-[color:var(--color-gold)]" href="mailto:polly@swolfandassociates.com">Polly Kosyla</a>
-            <a className="hover:text-[color:var(--color-gold)]" href="mailto:charlie@swolfandassociates.com">Charlie Kosyla</a>
-            <a className="hover:text-[color:var(--color-gold)]" href="mailto:lester@swolfandassociates.com">Lester Palmiano</a>
+          <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Direct team contacts</div>
+          <div className="mt-4 grid gap-x-8 gap-y-3 text-sm sm:grid-cols-2 lg:grid-cols-3">
+            <a className="hover:text-[color:var(--color-gold)]" href="mailto:polly@swolfways.com">Polly Kosyla</a>
+            <a className="hover:text-[color:var(--color-gold)]" href="mailto:charlie@swolfways.com">Charlie Kosyla</a>
+            <a className="hover:text-[color:var(--color-gold)]" href="mailto:trey@swolfways.com">Trey Elder</a>
+            <a className="hover:text-[color:var(--color-gold)]" href="mailto:john@swolfways.com">John Blockinger</a>
+            <a className="hover:text-[color:var(--color-gold)]" href="mailto:alex@swolfways.com">Alex Averbach</a>
           </div>
         </div>
         <blockquote className="mt-16 max-w-3xl rule-gold">
@@ -484,7 +515,7 @@ function Contact() {
             "Having insurance is important — but having the <em>right</em> insurance is essential."
           </p>
           <footer className="mt-4 text-sm uppercase tracking-[0.2em] text-muted-foreground">
-            — Polly Kosyla, Founder & President
+            — Polly Kosyla, Founder
           </footer>
         </blockquote>
       </div>
@@ -520,10 +551,48 @@ function ContactCard({
 
 function Footer() {
   return (
-    <footer className="border-t border-border bg-primary py-10 text-primary-foreground/80">
-      <div className="container-page flex flex-col items-start justify-between gap-4 text-sm md:flex-row md:items-center">
-        <div className="font-serif text-base">S. Wolf & Associates</div>
-        <div>© {new Date().getFullYear()} — Insurance built for nonprofits. Since 1988.</div>
+    <footer className="border-t border-border bg-primary py-12 text-primary-foreground/80">
+      <div className="container-page grid gap-10 md:grid-cols-[1.5fr_1fr]">
+        <div className="space-y-4">
+          <div className="font-serif text-base">S. WOLF</div>
+          <address className="not-italic text-sm leading-relaxed">
+            2338 W. Morse 1C<br />
+            Chicago, IL 60645
+          </address>
+          <div className="text-sm">
+            <a href="mailto:contactus@swolfways.com" className="hover:text-primary-foreground">contactus@swolfways.com</a>
+            <span className="mx-2">|</span>
+            <a href="tel:7737540849" className="hover:text-primary-foreground">773-754-0849</a>
+          </div>
+          <div>© {new Date().getFullYear()} — Insurance built for nonprofits. Since 1988.</div>
+        </div>
+        <div className="space-y-4">
+          <div className="text-xs uppercase tracking-[0.18em] text-primary-foreground/70">Stay Updated with the Latest</div>
+          <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
+            <label htmlFor="newsletter-email" className="sr-only">Email</label>
+            <input
+              id="newsletter-email"
+              type="email"
+              required
+              placeholder="Email*"
+              className="w-full rounded-md border border-primary-foreground/20 bg-primary-foreground/10 px-4 py-2 text-sm text-primary-foreground placeholder:text-primary-foreground/50 focus:border-primary-foreground focus:outline-none"
+            />
+            <label className="flex items-start gap-2 text-sm">
+              <input
+                type="checkbox"
+                required
+                className="mt-1 h-4 w-4 accent-[color:var(--color-gold)]"
+              />
+              <span>Yes, subscribe me to your newsletter.</span>
+            </label>
+            <button
+              type="submit"
+              className="rounded-full bg-[color:var(--color-gold)] px-5 py-2 text-sm font-semibold uppercase tracking-wider text-primary transition hover:opacity-90"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
       </div>
     </footer>
   );
