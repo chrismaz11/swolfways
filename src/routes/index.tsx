@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import heroImg from "@/assets/hero.jpg";
 
 export const Route = createFileRoute("/")({
@@ -25,13 +27,6 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const nav = [
-  { label: "About", href: "#about" },
-  { label: "Solutions", href: "#solutions" },
-  { label: "Approach", href: "#approach" },
-  { label: "Team", href: "#team" },
-  { label: "Contact", href: "#contact" },
-];
 
 const solutions = [
   {
@@ -162,31 +157,6 @@ function Home() {
   );
 }
 
-function Header() {
-  return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
-      <div className="container-page flex h-16 items-center justify-between">
-        <a href="#top" className="flex items-baseline gap-2">
-          <span className="font-serif text-xl tracking-tight">S. Wolf</span>
-          <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">& Associates</span>
-        </a>
-        <nav className="hidden gap-8 md:flex">
-          {nav.map((n) => (
-            <a key={n.href} href={n.href} className="text-sm text-muted-foreground transition hover:text-foreground">
-              {n.label}
-            </a>
-          ))}
-        </nav>
-        <a
-          href="#quote"
-          className="hidden rounded-full bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary-foreground transition hover:opacity-90 sm:inline-block"
-        >
-          Get a Quote
-        </a>
-      </div>
-    </header>
-  );
-}
 
 function Hero() {
   return (
@@ -549,51 +519,3 @@ function ContactCard({
   return href ? <a href={href} className={cls}>{inner}</a> : <div className={cls}>{inner}</div>;
 }
 
-function Footer() {
-  return (
-    <footer className="border-t border-border bg-primary py-12 text-primary-foreground/80">
-      <div className="container-page grid gap-10 md:grid-cols-[1.5fr_1fr]">
-        <div className="space-y-4">
-          <div className="font-serif text-base">S. WOLF</div>
-          <address className="not-italic text-sm leading-relaxed">
-            2338 W. Morse 1C<br />
-            Chicago, IL 60645
-          </address>
-          <div className="text-sm">
-            <a href="mailto:contactus@swolfways.com" className="hover:text-primary-foreground">contactus@swolfways.com</a>
-            <span className="mx-2">|</span>
-            <a href="tel:7737540849" className="hover:text-primary-foreground">773-754-0849</a>
-          </div>
-          <div>© {new Date().getFullYear()} — Insurance built for nonprofits. Since 1988.</div>
-        </div>
-        <div className="space-y-4">
-          <div className="text-xs uppercase tracking-[0.18em] text-primary-foreground/70">Stay Updated with the Latest</div>
-          <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
-            <label htmlFor="newsletter-email" className="sr-only">Email</label>
-            <input
-              id="newsletter-email"
-              type="email"
-              required
-              placeholder="Email*"
-              className="w-full rounded-md border border-primary-foreground/20 bg-primary-foreground/10 px-4 py-2 text-sm text-primary-foreground placeholder:text-primary-foreground/50 focus:border-primary-foreground focus:outline-none"
-            />
-            <label className="flex items-start gap-2 text-sm">
-              <input
-                type="checkbox"
-                required
-                className="mt-1 h-4 w-4 accent-[color:var(--color-gold)]"
-              />
-              <span>Yes, subscribe me to your newsletter.</span>
-            </label>
-            <button
-              type="submit"
-              className="rounded-full bg-[color:var(--color-gold)] px-5 py-2 text-sm font-semibold uppercase tracking-wider text-primary transition hover:opacity-90"
-            >
-              Subscribe
-            </button>
-          </form>
-        </div>
-      </div>
-    </footer>
-  );
-}
