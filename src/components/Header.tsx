@@ -3,11 +3,13 @@ import { Link } from "@tanstack/react-router";
 const nav = [
   { label: "About", href: "/#about" },
   { label: "Solutions", href: "/#solutions" },
+  { label: "D&O Guide", href: "/solutions/do-insurance" },
   { label: "Approach", href: "/#approach" },
   { label: "Team", href: "/#team" },
   { label: "Testimonials", href: "/testimonials" },
   { label: "Contact", href: "/#contact" },
 ];
+
 
 export function Header() {
   return (

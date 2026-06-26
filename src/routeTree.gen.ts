@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SolutionsDoInsuranceRouteImport } from './routes/solutions.do-insurance'
 
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
@@ -28,35 +29,49 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SolutionsDoInsuranceRoute = SolutionsDoInsuranceRouteImport.update({
+  id: '/solutions/do-insurance',
+  path: '/solutions/do-insurance',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
+  '/solutions/do-insurance': typeof SolutionsDoInsuranceRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
+  '/solutions/do-insurance': typeof SolutionsDoInsuranceRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
+  '/solutions/do-insurance': typeof SolutionsDoInsuranceRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml' | '/testimonials'
+  fullPaths: '/' | '/sitemap.xml' | '/testimonials' | '/solutions/do-insurance'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml' | '/testimonials'
-  id: '__root__' | '/' | '/sitemap.xml' | '/testimonials'
+  to: '/' | '/sitemap.xml' | '/testimonials' | '/solutions/do-insurance'
+  id:
+    | '__root__'
+    | '/'
+    | '/sitemap.xml'
+    | '/testimonials'
+    | '/solutions/do-insurance'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TestimonialsRoute: typeof TestimonialsRoute
+  SolutionsDoInsuranceRoute: typeof SolutionsDoInsuranceRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +97,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solutions/do-insurance': {
+      id: '/solutions/do-insurance'
+      path: '/solutions/do-insurance'
+      fullPath: '/solutions/do-insurance'
+      preLoaderRoute: typeof SolutionsDoInsuranceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +111,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TestimonialsRoute: TestimonialsRoute,
+  SolutionsDoInsuranceRoute: SolutionsDoInsuranceRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
