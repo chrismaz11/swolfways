@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import testimonialsImg from "@/assets/testimonials-hero.jpg";
+import communityImg from "@/assets/testimonials-community.jpg";
+import partnershipImg from "@/assets/testimonials-partnership.jpg";
 
 export const Route = createFileRoute("/testimonials")({
   head: () => ({
@@ -98,6 +100,40 @@ function Testimonials() {
                 </blockquote>
               </article>
             ))}
+          </div>
+        </section>
+        <section className="border-y border-border bg-[color:var(--color-navy-800)]/50">
+          <div className="container-page py-24">
+            <div className="grid gap-8 md:grid-cols-2">
+              <figure className="group relative overflow-hidden rounded-md ring-1 ring-foreground/10">
+                <img
+                  src={communityImg}
+                  alt="Nonprofit team celebrating together at a community event"
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  width={1280}
+                  height={960}
+                  loading="lazy"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[color:var(--color-navy)] to-transparent p-6 pt-16">
+                  <p className="font-serif text-xl text-[color:var(--color-cream)]">The missions we protect</p>
+                  <p className="mt-1 text-sm text-[color:var(--color-cream)]/80">Community, arts, and social-impact organizations across the Midwest.</p>
+                </figcaption>
+              </figure>
+              <figure className="group relative overflow-hidden rounded-md ring-1 ring-foreground/10">
+                <img
+                  src={partnershipImg}
+                  alt="Insurance professionals shaking hands over a policy review"
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  width={1280}
+                  height={960}
+                  loading="lazy"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[color:var(--color-navy)] to-transparent p-6 pt-16">
+                  <p className="font-serif text-xl text-[color:var(--color-cream)]">Partnerships built on trust</p>
+                  <p className="mt-1 text-sm text-[color:var(--color-cream)]/80">Personal attention and responsive service for every client.</p>
+                </figcaption>
+              </figure>
+            </div>
           </div>
         </section>
         <Footer />
