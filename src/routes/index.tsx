@@ -87,28 +87,37 @@ const programs = [
 const team = [
   {
     name: "Polly Kosyla",
-    role: "President & Founder",
-    bio: "Northwestern University graduate with 12 years of direct nonprofit experience working with emotionally disturbed youth. Since 1988, she has advised over 300 nonprofits across Illinois and 10 additional states.",
+    role: "Founder",
+    bio: "Polly, a Northwestern University graduate with a background in Psychology and Education, has dedicated over 25 years to providing tailored insurance solutions for nonprofits. Leveraging her deep understanding of nonprofit operations, she supports over 300 organizations across multiple states, fostering sustainability and participating in their fundraising efforts.",
+    phone: "312.502.0023",
+    email: "polly@swolfways.com",
   },
   {
     name: "Charlie Kosyla",
-    role: "Vice President",
-    bio: "Leads business development and client onboarding, conducting intensive deep-dives into organizational missions, funding streams, and grant requirements to secure appropriate multi-carrier coverage portfolios.",
+    role: "President",
+    bio: "Charlie, the youngest agent at S. Wolf, brings fresh energy and a unique perspective from outside the insurance industry. His innovative approach to relationship building and commitment to understanding nonprofits' unique challenges make him a key part of their growth and success.",
+    phone: "773.870.5007",
+    email: "charlie@swolfways.com",
   },
   {
-    name: "Lester Palmiano",
-    role: "Account Executive",
-    bio: "Specializes in HR technology and employee benefits consulting. Former VP of the Peterson Garden Project, bringing firsthand nonprofit operational management experience.",
+    name: "Trey Elder",
+    role: "Nonprofit Benefit Specialist",
+    bio: "Trey Elder is a Chicago-based creative and community organizer with a diverse background in music, hospitality, and nonprofit work. He co-founded Royal Hands, a creative agency, and later launched Quiet Pterodactyl, a nonprofit supporting arts and music access. Elder has booked shows, run events, and promoted artists locally and internationally. He now works as a Benefits Agent with S. Wolf and Associates and serves on committees with the Andersonville Chamber of Commerce.",
+    phone: "773.531.8165",
+    email: "trey@swolfways.com",
   },
   {
-    name: "Jennifer Brown",
-    role: "Office Administrator",
-    bio: "Heads client relations and internal operations. True to the agency's client-first policy, the firm relies on live communication — no automated voicemail routing systems.",
+    name: "John Blockinger",
+    role: "Account Manager | Nonprofit Retention Specialist",
+    bio: "John Blockinger is the Service Manager for our Property and Casualty Insurance division, where he helps clients secure the best coverage and value. With a background in underwriting and marketing for several carriers, he brings deep industry knowledge to the table. John has built strong relationships with insurance providers and negotiates favorable terms on behalf of our clients. He also assists with policy updates and portfolio reviews. He holds the CPCU designation, recognizing his expertise in advanced insurance topics.",
+    phone: "773.332.7721",
+    email: "john@swolfways.com",
   },
   {
-    name: "Stanley Kosyla",
-    role: "Property Assessor",
-    bio: "Veteran general contractor with 25 years at AC Construction, providing specialized risk management inspections, property reviews, and field support for the Lend a Hand program.",
+    name: "Alex Averbach",
+    role: "Director of Operations",
+    bio: "Alex Averbach keeps the wheels turning. As our Director of Operations, she oversees systems, strategy, and efficiency across the board—ensuring everything runs smoothly, on time, and on budget. From streamlining workflows to managing contractors, Alex is the architect of our internal excellence. While she doesn't work directly with clients, her fingerprints are on every success. Think of her as the invisible engine behind our visible results.",
+    email: "alex@swolfways.com",
   },
 ];
 
@@ -378,13 +387,25 @@ function Team() {
   return (
     <section id="team" className="border-t border-border bg-card">
       <div className="container-page py-24">
-        <SectionHeading eyebrow="Leadership" title="The team behind your coverage." />
+        <SectionHeading eyebrow="Our Team" title="The people behind your coverage." />
         <div className="mt-12 grid gap-px overflow-hidden rounded-md bg-border md:grid-cols-2 lg:grid-cols-3">
           {team.map((p) => (
             <article key={p.name} className="bg-background p-8">
               <div className="font-serif text-xl">{p.name}</div>
               <div className="mt-1 text-xs uppercase tracking-[0.18em] text-[color:var(--color-gold)]">{p.role}</div>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{p.bio}</p>
+              <div className="mt-5 space-y-1 text-sm">
+                {p.phone && (
+                  <a href={`tel:${p.phone.replace(/\./g, "")}`} className="block text-foreground/80 hover:text-[color:var(--color-gold)]">
+                    {p.phone}
+                  </a>
+                )}
+                {p.email && (
+                  <a href={`mailto:${p.email}`} className="block text-foreground/80 hover:text-[color:var(--color-gold)]">
+                    {p.email}
+                  </a>
+                )}
+              </div>
             </article>
           ))}
         </div>
