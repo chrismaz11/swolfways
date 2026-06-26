@@ -1,0 +1,10 @@
+# S. Wolf & Associates
+
+> Independent insurance agency providing tailored insurance solutions for nonprofit (501(c)(3)) organizations since 1988.
+
+S. Wolf & Associates is a Chicago-based independent agency serving 800+ nonprofits with property & casualty, employee benefits, unemployment insurance, and RFP services. Founded by Polly Kosyla.
+
+## Pages
+
+- [Home](/): Overview of services, approach, team, and contact information.
+- [Testimonials](/testimonials): Client testimonials from nonprofit leaders.
