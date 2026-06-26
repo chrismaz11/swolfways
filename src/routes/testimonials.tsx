@@ -21,13 +21,58 @@ export const Route = createFileRoute("/testimonials")({
           "Hear from nonprofit leaders about their experience with S. Wolf & Associates.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/testimonials" },
       { property: "og:image", content: testimonialsImg },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: testimonialsImg },
     ],
+    links: [{ rel: "canonical", href: "/testimonials" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: "S. Wolf & Associates Nonprofit Insurance Services",
+          description:
+            "Specialized insurance services for 501(c)(3) nonprofit organizations.",
+          brand: { "@type": "Organization", name: "S. Wolf & Associates" },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "5",
+            bestRating: "5",
+            reviewCount: "3",
+          },
+          review: [
+            {
+              "@type": "Review",
+              author: { "@type": "Person", name: "Diego Martin Gonzalez" },
+              reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+              reviewBody:
+                "Polly and her team have been serving our non-profit for several years and they are always very reliable. Her team is super helpful whenever we have any questions. They are very knowledgable and trusted advisors with everything non profit insurance related.",
+            },
+            {
+              "@type": "Review",
+              author: { "@type": "Person", name: "Brie Edwards" },
+              reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+              reviewBody:
+                "Highly professional and progressive office. Polly and her associates are one of the best in the industry.",
+            },
+            {
+              "@type": "Review",
+              author: { "@type": "Person", name: "David Terrazino" },
+              reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+              reviewBody:
+                "Our non-profit organization has benefitted greatly over the past several years due to the professionalism and personal attention of Polly Kosyla and her team. Our questions are always responded to immediately and she consistently acts in our best interest concerning our insurance needs. I highly recommend Polly and S. Wolf & Associates.",
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: Testimonials,
 });
+
 
 const testimonials = [
   {

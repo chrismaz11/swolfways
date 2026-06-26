@@ -19,13 +19,50 @@ export const Route = createFileRoute("/")({
           "Specialized coverage for 501(c)(3) organizations. Stable pricing, multi-carrier portfolios, live human answers.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
       { property: "og:image", content: heroImg },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: heroImg },
     ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "InsuranceAgency",
+          name: "S. Wolf & Associates",
+          description:
+            "Independent insurance agency specializing in tailored insurance solutions for 501(c)(3) nonprofit organizations since 1988.",
+          url: "/",
+          telephone: "+1-773-754-0849",
+          email: "contactus@swolfways.com",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "2338 W. Morse 1C",
+            addressLocality: "Chicago",
+            addressRegion: "IL",
+            postalCode: "60645",
+            addressCountry: "US",
+          },
+          areaServed: [
+            { "@type": "State", name: "Illinois" },
+            { "@type": "Country", name: "United States" },
+          ],
+          knowsAbout: [
+            "Nonprofit insurance",
+            "Property and casualty insurance",
+            "Employee benefits",
+            "Directors and officers liability",
+            "Unemployment insurance",
+          ],
+        }),
+      },
+    ],
   }),
   component: Home,
 });
+
 
 
 const solutions = [

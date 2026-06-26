@@ -77,14 +77,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "S. Wolf & Associates — Insurance Built for Nonprofits" },
+      {
+        name: "description",
+        content:
+          "Independent insurance agency serving 800+ nonprofits since 1988. Property & casualty, employee benefits, unemployment, and RFP services for 501(c)(3) organizations.",
+      },
+      { name: "author", content: "S. Wolf & Associates" },
+      { property: "og:site_name", content: "S. Wolf & Associates" },
+      { property: "og:title", content: "S. Wolf & Associates — Insurance Built for Nonprofits" },
+      {
+        property: "og:description",
+        content:
+          "Specialized insurance for nonprofits. Stable pricing, multi-carrier portfolios, live human answers.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -95,7 +103,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "S. Wolf & Associates",
+          description:
+            "Independent insurance agency providing tailored insurance solutions for nonprofit organizations since 1988.",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "2338 W. Morse 1C",
+            addressLocality: "Chicago",
+            addressRegion: "IL",
+            postalCode: "60645",
+            addressCountry: "US",
+          },
+          email: "contactus@swolfways.com",
+          telephone: "+1-773-754-0849",
+        }),
+      },
+    ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
