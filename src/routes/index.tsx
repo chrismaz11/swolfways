@@ -137,20 +137,28 @@ const quoteSteps = [
 
 function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Header />
-      <Hero />
-      <About />
-      <Solutions />
-      <Approach />
-      <CarrierSection />
-      <Programs />
-      <Team />
-      <Stats />
-      <Quote />
-      <Contact />
-      <Footer />
-    </div>
+    <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-primary-foreground"
+      >
+        Skip to Main Content
+      </a>
+      <main id="main-content" className="min-h-screen bg-background text-foreground">
+        <Header />
+        <Hero />
+        <About />
+        <Solutions />
+        <Approach />
+        <CarrierSection />
+        <Programs />
+        <Team />
+        <Stats />
+        <Quote />
+        <Contact />
+        <Footer />
+      </main>
+    </>
   );
 }
 
@@ -476,7 +484,7 @@ function Contact() {
   return (
     <section id="contact" className="border-t border-border">
       <div className="container-page py-24">
-        <SectionHeading eyebrow="Contact" title="Let's talk about your coverage." />
+        <SectionHeading eyebrow="Get in Touch" title="Let's talk about your coverage." />
         <div className="mt-12 grid gap-8 md:grid-cols-3">
           <ContactCard icon="📍" title="Visit Us" lines={["2338 W. Morse Ave, Suite 1C", "Chicago, IL 60645"]} />
           <ContactCard
@@ -493,11 +501,13 @@ function Contact() {
           />
         </div>
         <div className="mt-10 rounded-md border border-border bg-card p-8">
-          <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Direct leadership</div>
-          <div className="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sm">
-            <a className="hover:text-[color:var(--color-gold)]" href="mailto:polly@swolfandassociates.com">Polly Kosyla</a>
-            <a className="hover:text-[color:var(--color-gold)]" href="mailto:charlie@swolfandassociates.com">Charlie Kosyla</a>
-            <a className="hover:text-[color:var(--color-gold)]" href="mailto:lester@swolfandassociates.com">Lester Palmiano</a>
+          <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Direct team contacts</div>
+          <div className="mt-4 grid gap-x-8 gap-y-3 text-sm sm:grid-cols-2 lg:grid-cols-3">
+            <a className="hover:text-[color:var(--color-gold)]" href="mailto:polly@swolfways.com">Polly Kosyla</a>
+            <a className="hover:text-[color:var(--color-gold)]" href="mailto:charlie@swolfways.com">Charlie Kosyla</a>
+            <a className="hover:text-[color:var(--color-gold)]" href="mailto:trey@swolfways.com">Trey Elder</a>
+            <a className="hover:text-[color:var(--color-gold)]" href="mailto:john@swolfways.com">John Blockinger</a>
+            <a className="hover:text-[color:var(--color-gold)]" href="mailto:alex@swolfways.com">Alex Averbach</a>
           </div>
         </div>
         <blockquote className="mt-16 max-w-3xl rule-gold">
@@ -505,7 +515,7 @@ function Contact() {
             "Having insurance is important — but having the <em>right</em> insurance is essential."
           </p>
           <footer className="mt-4 text-sm uppercase tracking-[0.2em] text-muted-foreground">
-            — Polly Kosyla, Founder & President
+            — Polly Kosyla, Founder
           </footer>
         </blockquote>
       </div>
@@ -541,10 +551,48 @@ function ContactCard({
 
 function Footer() {
   return (
-    <footer className="border-t border-border bg-primary py-10 text-primary-foreground/80">
-      <div className="container-page flex flex-col items-start justify-between gap-4 text-sm md:flex-row md:items-center">
-        <div className="font-serif text-base">S. Wolf & Associates</div>
-        <div>© {new Date().getFullYear()} — Insurance built for nonprofits. Since 1988.</div>
+    <footer className="border-t border-border bg-primary py-12 text-primary-foreground/80">
+      <div className="container-page grid gap-10 md:grid-cols-[1.5fr_1fr]">
+        <div className="space-y-4">
+          <div className="font-serif text-base">S. WOLF</div>
+          <address className="not-italic text-sm leading-relaxed">
+            2338 W. Morse 1C<br />
+            Chicago, IL 60645
+          </address>
+          <div className="text-sm">
+            <a href="mailto:contactus@swolfways.com" className="hover:text-primary-foreground">contactus@swolfways.com</a>
+            <span className="mx-2">|</span>
+            <a href="tel:7737540849" className="hover:text-primary-foreground">773-754-0849</a>
+          </div>
+          <div>© {new Date().getFullYear()} — Insurance built for nonprofits. Since 1988.</div>
+        </div>
+        <div className="space-y-4">
+          <div className="text-xs uppercase tracking-[0.18em] text-primary-foreground/70">Stay Updated with the Latest</div>
+          <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
+            <label htmlFor="newsletter-email" className="sr-only">Email</label>
+            <input
+              id="newsletter-email"
+              type="email"
+              required
+              placeholder="Email*"
+              className="w-full rounded-md border border-primary-foreground/20 bg-primary-foreground/10 px-4 py-2 text-sm text-primary-foreground placeholder:text-primary-foreground/50 focus:border-primary-foreground focus:outline-none"
+            />
+            <label className="flex items-start gap-2 text-sm">
+              <input
+                type="checkbox"
+                required
+                className="mt-1 h-4 w-4 accent-[color:var(--color-gold)]"
+              />
+              <span>Yes, subscribe me to your newsletter.</span>
+            </label>
+            <button
+              type="submit"
+              className="rounded-full bg-[color:var(--color-gold)] px-5 py-2 text-sm font-semibold uppercase tracking-wider text-primary transition hover:opacity-90"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
       </div>
     </footer>
   );
