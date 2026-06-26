@@ -27,13 +27,6 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const nav = [
-  { label: "About", href: "#about" },
-  { label: "Solutions", href: "#solutions" },
-  { label: "Approach", href: "#approach" },
-  { label: "Team", href: "#team" },
-  { label: "Contact", href: "#contact" },
-];
 
 const solutions = [
   {
