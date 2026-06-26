@@ -7,4 +7,6 @@ S. Wolf & Associates is a Chicago-based independent agency serving 800+ nonprofi
 ## Pages
 
 - [Home](/): Overview of services, approach, team, and contact information.
+- [D&O Insurance for Nonprofits](/solutions/do-insurance): Guide to Directors & Officers liability coverage for 501(c)(3) boards.
 - [Testimonials](/testimonials): Client testimonials from nonprofit leaders.
+
