@@ -11,7 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as AccessibilityStatementRouteImport } from './routes/accessibility-statement'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SolutionsNonprofitInsuranceCostGuideRouteImport } from './routes/solutions.nonprofit-insurance-cost-guide'
 import { Route as SolutionsDoInsuranceRouteImport } from './routes/solutions.do-insurance'
 
 const TestimonialsRoute = TestimonialsRouteImport.update({
@@ -24,11 +27,27 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccessibilityStatementRoute = AccessibilityStatementRouteImport.update({
+  id: '/accessibility-statement',
+  path: '/accessibility-statement',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SolutionsNonprofitInsuranceCostGuideRoute =
+  SolutionsNonprofitInsuranceCostGuideRouteImport.update({
+    id: '/solutions/nonprofit-insurance-cost-guide',
+    path: '/solutions/nonprofit-insurance-cost-guide',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SolutionsDoInsuranceRoute = SolutionsDoInsuranceRouteImport.update({
   id: '/solutions/do-insurance',
   path: '/solutions/do-insurance',
@@ -37,41 +56,70 @@ const SolutionsDoInsuranceRoute = SolutionsDoInsuranceRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/accessibility-statement': typeof AccessibilityStatementRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
   '/solutions/do-insurance': typeof SolutionsDoInsuranceRoute
+  '/solutions/nonprofit-insurance-cost-guide': typeof SolutionsNonprofitInsuranceCostGuideRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/accessibility-statement': typeof AccessibilityStatementRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
   '/solutions/do-insurance': typeof SolutionsDoInsuranceRoute
+  '/solutions/nonprofit-insurance-cost-guide': typeof SolutionsNonprofitInsuranceCostGuideRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/accessibility-statement': typeof AccessibilityStatementRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
   '/solutions/do-insurance': typeof SolutionsDoInsuranceRoute
+  '/solutions/nonprofit-insurance-cost-guide': typeof SolutionsNonprofitInsuranceCostGuideRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml' | '/testimonials' | '/solutions/do-insurance'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml' | '/testimonials' | '/solutions/do-insurance'
-  id:
-    | '__root__'
+  fullPaths:
     | '/'
+    | '/accessibility-statement'
+    | '/privacy-policy'
     | '/sitemap.xml'
     | '/testimonials'
     | '/solutions/do-insurance'
+    | '/solutions/nonprofit-insurance-cost-guide'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/accessibility-statement'
+    | '/privacy-policy'
+    | '/sitemap.xml'
+    | '/testimonials'
+    | '/solutions/do-insurance'
+    | '/solutions/nonprofit-insurance-cost-guide'
+  id:
+    | '__root__'
+    | '/'
+    | '/accessibility-statement'
+    | '/privacy-policy'
+    | '/sitemap.xml'
+    | '/testimonials'
+    | '/solutions/do-insurance'
+    | '/solutions/nonprofit-insurance-cost-guide'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccessibilityStatementRoute: typeof AccessibilityStatementRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TestimonialsRoute: typeof TestimonialsRoute
   SolutionsDoInsuranceRoute: typeof SolutionsDoInsuranceRoute
+  SolutionsNonprofitInsuranceCostGuideRoute: typeof SolutionsNonprofitInsuranceCostGuideRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -90,11 +138,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accessibility-statement': {
+      id: '/accessibility-statement'
+      path: '/accessibility-statement'
+      fullPath: '/accessibility-statement'
+      preLoaderRoute: typeof AccessibilityStatementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/nonprofit-insurance-cost-guide': {
+      id: '/solutions/nonprofit-insurance-cost-guide'
+      path: '/solutions/nonprofit-insurance-cost-guide'
+      fullPath: '/solutions/nonprofit-insurance-cost-guide'
+      preLoaderRoute: typeof SolutionsNonprofitInsuranceCostGuideRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solutions/do-insurance': {
@@ -109,9 +178,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccessibilityStatementRoute: AccessibilityStatementRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TestimonialsRoute: TestimonialsRoute,
   SolutionsDoInsuranceRoute: SolutionsDoInsuranceRoute,
+  SolutionsNonprofitInsuranceCostGuideRoute:
+    SolutionsNonprofitInsuranceCostGuideRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

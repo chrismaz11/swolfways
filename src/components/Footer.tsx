@@ -5,24 +5,37 @@ export function Footer() {
         <div className="space-y-4">
           <div className="font-serif text-base">S. WOLF</div>
           <address className="not-italic text-sm leading-relaxed">
-            2338 W. Morse 1C<br />
+            2338 W. Morse 1C
+            <br />
             Chicago, IL 60645
           </address>
           <div className="text-sm">
-            <a href="mailto:contactus@swolfways.com" className="hover:text-primary-foreground">contactus@swolfways.com</a>
+            <a href="mailto:contactus@swolfways.com" className="hover:text-primary-foreground">
+              contactus@swolfways.com
+            </a>
             <span className="mx-2">|</span>
-            <a href="tel:7737540849" className="hover:text-primary-foreground">773-754-0849</a>
+            <a href="tel:7737540849" className="hover:text-primary-foreground">
+              773-754-0849
+            </a>
           </div>
-          <div className="text-sm">© 2024 by S. Wolf and Associates. Built by Space Ranger Media</div>
+          <div className="text-sm">© 2024 by S. Wolf and Associates.</div>
           <div className="flex flex-wrap gap-4 text-sm">
-            <a href="/privacy-policy" className="hover:text-primary-foreground">Privacy Policy</a>
-            <a href="/accessibility-statement" className="hover:text-primary-foreground">Accessibility Statement</a>
+            <a href="/privacy-policy" className="hover:text-primary-foreground">
+              Privacy Policy
+            </a>
+            <a href="/accessibility-statement" className="hover:text-primary-foreground">
+              Accessibility Statement
+            </a>
           </div>
         </div>
         <div className="space-y-4">
-          <div className="text-xs uppercase tracking-[0.18em] text-primary-foreground/70">Stay Updated with the Latest</div>
+          <div className="text-xs uppercase tracking-[0.18em] text-primary-foreground/70">
+            Stay Updated with the Latest
+          </div>
           <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
-            <label htmlFor="newsletter-email" className="sr-only">Email</label>
+            <label htmlFor="newsletter-email" className="sr-only">
+              Email
+            </label>
             <input
               id="newsletter-email"
               type="email"

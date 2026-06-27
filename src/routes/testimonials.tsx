@@ -17,8 +17,7 @@ export const Route = createFileRoute("/testimonials")({
       { property: "og:title", content: "Client Testimonials — S. Wolf & Associates" },
       {
         property: "og:description",
-        content:
-          "Hear from nonprofit leaders about their experience with S. Wolf & Associates.",
+        content: "Hear from nonprofit leaders about their experience with S. Wolf & Associates.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/testimonials" },
@@ -34,8 +33,7 @@ export const Route = createFileRoute("/testimonials")({
           "@context": "https://schema.org",
           "@type": "Product",
           name: "S. Wolf & Associates Nonprofit Insurance Services",
-          description:
-            "Specialized insurance services for 501(c)(3) nonprofit organizations.",
+          description: "Specialized insurance services for 501(c)(3) nonprofit organizations.",
           brand: { "@type": "Organization", name: "S. Wolf & Associates" },
           aggregateRating: {
             "@type": "AggregateRating",
@@ -72,7 +70,6 @@ export const Route = createFileRoute("/testimonials")({
   }),
   component: Testimonials,
 });
-
 
 const testimonials = [
   {
@@ -111,15 +108,18 @@ function Testimonials() {
                 Trusted by the missions we serve.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                At S. Wolf & Associates, we believe the right partnerships solve problems before they
-                start. That’s why we work with top-tier insurance carriers and maintain lasting
-                relationships with the organizations we serve. On this page, you’ll find stories from
-                our clients and a look at the trusted providers we work with. Because the company you
-                keep matters when it comes to protecting your mission.
+                At S. Wolf & Associates, we believe the right partnerships solve problems before
+                they start. That’s why we work with top-tier insurance carriers and maintain lasting
+                relationships with the organizations we serve. On this page, you’ll find stories
+                from our clients and a look at the trusted providers we work with. Because the
+                company you keep matters when it comes to protecting your mission.
               </p>
             </div>
             <div className="relative">
-              <div className="absolute -inset-4 rounded-md bg-[color:var(--color-gold)]/15 blur-2xl" aria-hidden />
+              <div
+                className="absolute -inset-4 rounded-md bg-[color:var(--color-gold)]/15 blur-2xl"
+                aria-hidden
+              />
               <div className="relative overflow-hidden rounded-md shadow-2xl ring-1 ring-foreground/10">
                 <img
                   src={testimonialsImg}
@@ -160,8 +160,12 @@ function Testimonials() {
                   loading="lazy"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[color:var(--color-navy)] to-transparent p-6 pt-16">
-                  <p className="font-serif text-xl text-[color:var(--color-cream)]">The missions we protect</p>
-                  <p className="mt-1 text-sm text-[color:var(--color-cream)]/80">Community, arts, and social-impact organizations across the Midwest.</p>
+                  <p className="font-serif text-xl text-[color:var(--color-cream)]">
+                    The missions we protect
+                  </p>
+                  <p className="mt-1 text-sm text-[color:var(--color-cream)]/80">
+                    Community, arts, and social-impact organizations across the Midwest.
+                  </p>
                 </figcaption>
               </figure>
               <figure className="group relative overflow-hidden rounded-md ring-1 ring-foreground/10">
@@ -174,8 +178,12 @@ function Testimonials() {
                   loading="lazy"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[color:var(--color-navy)] to-transparent p-6 pt-16">
-                  <p className="font-serif text-xl text-[color:var(--color-cream)]">Partnerships built on trust</p>
-                  <p className="mt-1 text-sm text-[color:var(--color-cream)]/80">Personal attention and responsive service for every client.</p>
+                  <p className="font-serif text-xl text-[color:var(--color-cream)]">
+                    Partnerships built on trust
+                  </p>
+                  <p className="mt-1 text-sm text-[color:var(--color-cream)]/80">
+                    Personal attention and responsive service for every client.
+                  </p>
                 </figcaption>
               </figure>
             </div>

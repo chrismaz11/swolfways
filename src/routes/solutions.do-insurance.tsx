@@ -169,9 +169,9 @@ function DOInsurance() {
               <div className="rule-gold mt-6" />
               <div className="mt-6 space-y-4 text-muted-foreground">
                 <p>
-                  D&amp;O insurance covers the personal assets of directors, officers, and — in
-                  most nonprofit forms — employees and volunteers when they are sued for decisions
-                  made on behalf of the organization. Without it, an individual board member can be
+                  D&amp;O insurance covers the personal assets of directors, officers, and — in most
+                  nonprofit forms — employees and volunteers when they are sued for decisions made
+                  on behalf of the organization. Without it, an individual board member can be
                   personally liable for legal defense costs, even in suits that are ultimately
                   dismissed.
                 </p>
@@ -194,7 +194,10 @@ function DOInsurance() {
           </div>
         </section>
 
-        <section id="risks" className="border-b border-border/60 bg-[color:var(--color-navy-900)]/40">
+        <section
+          id="risks"
+          className="border-b border-border/60 bg-[color:var(--color-navy-900)]/40"
+        >
           <div className="container-page py-20 md:py-24">
             <p className="eyebrow">Common Claims</p>
             <h2 className="mt-3 max-w-2xl font-serif text-3xl tracking-tight md:text-4xl">
@@ -253,7 +256,9 @@ function DOInsurance() {
                   key={item}
                   className="flex gap-3 rounded-xl border border-foreground/10 bg-background/40 px-5 py-4 text-sm text-muted-foreground"
                 >
-                  <span aria-hidden className="text-[color:var(--color-brass)]">✓</span>
+                  <span aria-hidden className="text-[color:var(--color-brass)]">
+                    ✓
+                  </span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -269,10 +274,16 @@ function DOInsurance() {
             </h2>
             <p className="mt-6 max-w-2xl text-muted-foreground">
               We've placed D&amp;O coverage for hundreds of 501(c)(3) organizations across multiple
-              states. Tell us about your board, programs, and budget — we'll come back with a
-              policy comparison built around the risks that actually apply to you.
+              states. Tell us about your board, programs, and budget — we'll come back with a policy
+              comparison built around the risks that actually apply to you.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/solutions/nonprofit-insurance-cost-guide"
+                className="rounded-full border border-[color:var(--color-brass)] bg-[color:var(--color-brass)] px-6 py-3 text-sm font-semibold uppercase tracking-wider text-primary transition hover:opacity-90"
+              >
+                Read Cost Guide
+              </Link>
               <Link
                 to="/"
                 hash="quote"

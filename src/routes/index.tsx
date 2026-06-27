@@ -63,8 +63,6 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-
-
 const solutions = [
   {
     title: "Property & Casualty",
@@ -154,17 +152,37 @@ const team = [
 ];
 
 const stats = [
-  { n: "800+", l: "Organizations Protected", s: "Nonprofits, schools, healthcare providers, and advocacy groups nationwide" },
-  { n: "300+", l: "Direct Advisory Clients", s: "Organizations personally advised by President Polly Kosyla" },
+  {
+    n: "800+",
+    l: "Organizations Protected",
+    s: "Nonprofits, schools, healthcare providers, and advocacy groups nationwide",
+  },
+  {
+    n: "300+",
+    l: "Direct Advisory Clients",
+    s: "Organizations personally advised by President Polly Kosyla",
+  },
   { n: "25+", l: "Years of Expertise", s: "Deep nonprofit insurance specialization since 1988" },
   { n: "11", l: "States Served", s: "Illinois and 10 additional states across the U.S." },
 ];
 
 const quoteSteps = [
-  { n: "01", t: "Organizational Details", b: "Organization name and Federal Employer Identification Number (FEIN #)." },
+  {
+    n: "01",
+    t: "Organizational Details",
+    b: "Organization name and Federal Employer Identification Number (FEIN #).",
+  },
   { n: "02", t: "Contact Information", b: "Your name, phone number, and email address." },
-  { n: "03", t: "Specific Needs", b: "A brief description of how we can help or any unique risks your organization faces." },
-  { n: "04", t: "Current Policy Upload", b: "Submit your existing insurance policy digitally for evaluation and follow-up adjustments." },
+  {
+    n: "03",
+    t: "Specific Needs",
+    b: "A brief description of how we can help or any unique risks your organization faces.",
+  },
+  {
+    n: "04",
+    t: "Current Policy Upload",
+    b: "Submit your existing insurance policy digitally for evaluation and follow-up adjustments.",
+  },
 ];
 
 function Home() {
@@ -194,7 +212,6 @@ function Home() {
   );
 }
 
-
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
@@ -202,17 +219,26 @@ function Hero() {
         <div>
           <span className="eyebrow">Structure · Solve · Serve</span>
           <h1 className="mt-5 font-serif text-5xl leading-[1.02] tracking-tight md:text-7xl">
-            We insure<br />
+            We insure
+            <br />
             <em className="font-serif italic text-[color:var(--color-gold)]">nonprofits.</em>
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            S. Wolf & Associates is an independent insurance agency dedicated exclusively to the nonprofit sector — understanding your mission, crafting the right coverage, and standing beside your organization at every step.
+            S. Wolf & Associates is an independent insurance agency dedicated exclusively to the
+            nonprofit sector — understanding your mission, crafting the right coverage, and standing
+            beside your organization at every step.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#quote" className="rounded-full bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-wider text-primary-foreground transition hover:opacity-90">
+            <a
+              href="#quote"
+              className="rounded-full bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-wider text-primary-foreground transition hover:opacity-90"
+            >
               Get a Quote
             </a>
-            <a href="tel:7737540849" className="rounded-full border border-foreground/20 px-6 py-3 text-sm font-semibold tracking-wide text-foreground transition hover:border-foreground/60">
+            <a
+              href="tel:7737540849"
+              className="rounded-full border border-foreground/20 px-6 py-3 text-sm font-semibold tracking-wide text-foreground transition hover:border-foreground/60"
+            >
               Call 773·754·0849
             </a>
           </div>
@@ -221,13 +247,22 @@ function Hero() {
           </p>
         </div>
         <div className="relative">
-          <div className="absolute -inset-4 rounded-md bg-[color:var(--color-gold)]/15 blur-2xl" aria-hidden />
+          <div
+            className="absolute -inset-4 rounded-md bg-[color:var(--color-gold)]/15 blur-2xl"
+            aria-hidden
+          />
           <div className="relative overflow-hidden rounded-md shadow-2xl ring-1 ring-foreground/10">
-            <img src={heroImg} alt="Nonprofit advisory team in a Chicago conference room" className="aspect-[4/5] w-full object-cover" />
+            <img
+              src={heroImg}
+              alt="Nonprofit advisory team in a Chicago conference room"
+              className="aspect-[4/5] w-full object-cover"
+            />
           </div>
           <div className="absolute -bottom-6 -left-6 hidden rounded-md bg-card p-5 shadow-xl ring-1 ring-border md:block">
             <div className="font-serif text-3xl">800+</div>
-            <div className="text-xs uppercase tracking-widest text-muted-foreground">Organizations protected</div>
+            <div className="text-xs uppercase tracking-widest text-muted-foreground">
+              Organizations protected
+            </div>
           </div>
         </div>
       </div>
@@ -235,7 +270,15 @@ function Hero() {
   );
 }
 
-function SectionHeading({ eyebrow, title, lede }: { eyebrow: string; title: string; lede?: string }) {
+function SectionHeading({
+  eyebrow,
+  title,
+  lede,
+}: {
+  eyebrow: string;
+  title: string;
+  lede?: string;
+}) {
   return (
     <div className="max-w-3xl">
       <span className="eyebrow">{eyebrow}</span>
@@ -254,7 +297,9 @@ function About() {
           <div className="rounded-md bg-primary p-8 text-primary-foreground md:p-10">
             <h3 className="font-serif text-2xl">Why nonprofits need specialized coverage</h3>
             <p className="mt-4 leading-relaxed text-primary-foreground/85">
-              Most nonprofits operate on strict or restricted budgets. Sudden premium spikes create immediate financial hardship. We customize coverage to deliver stable, predictable pricing — protecting your mission without straining your resources.
+              Most nonprofits operate on strict or restricted budgets. Sudden premium spikes create
+              immediate financial hardship. We customize coverage to deliver stable, predictable
+              pricing — protecting your mission without straining your resources.
             </p>
           </div>
           <div>
@@ -299,6 +344,27 @@ function Solutions() {
             </article>
           ))}
         </div>
+        <div className="mt-10 rounded-md border border-border bg-card p-8 md:p-10">
+          <h3 className="font-serif text-2xl">Free nonprofit insurance guides</h3>
+          <p className="mt-3 max-w-3xl text-muted-foreground">
+            Compare coverage options and costs with practical guides built for 501(c)(3) boards,
+            executive directors, and finance teams.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a
+              href="/solutions/nonprofit-insurance-cost-guide"
+              className="rounded-full bg-primary px-5 py-2 text-sm font-semibold uppercase tracking-wider text-primary-foreground transition hover:opacity-90"
+            >
+              Nonprofit Insurance Cost Guide
+            </a>
+            <a
+              href="/solutions/do-insurance"
+              className="rounded-full border border-foreground/20 px-5 py-2 text-sm font-semibold uppercase tracking-wider text-foreground transition hover:bg-foreground/5"
+            >
+              D&O Insurance Guide
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -311,18 +377,25 @@ function Approach() {
         <div className="grid gap-12 md:grid-cols-[1fr_1.3fr] md:gap-20">
           <div>
             <span className="eyebrow">Structure</span>
-            <h2 className="mt-3 font-serif text-4xl leading-tight md:text-5xl">Building the right foundation.</h2>
+            <h2 className="mt-3 font-serif text-4xl leading-tight md:text-5xl">
+              Building the right foundation.
+            </h2>
             <p className="mt-5 text-muted-foreground">
-              We take the time to understand each organization's mission, operations, and risks. Through detailed assessments and open communication, every recommendation is grounded in real needs — not assumptions.
+              We take the time to understand each organization's mission, operations, and risks.
+              Through detailed assessments and open communication, every recommendation is grounded
+              in real needs — not assumptions.
             </p>
             <p className="mt-5 rule-gold text-sm italic text-foreground/80">
-              Our structured approach ensures no risk goes unexamined and no opportunity for savings is overlooked — from the first conversation to the final policy.
+              Our structured approach ensures no risk goes unexamined and no opportunity for savings
+              is overlooked — from the first conversation to the final policy.
             </p>
           </div>
           <ol className="grid gap-4 sm:grid-cols-2">
             {structure.map((s, i) => (
               <li key={s.t} className="rounded-md border border-border bg-background p-6">
-                <div className="font-serif text-sm text-[color:var(--color-gold)]">Step 0{i + 1}</div>
+                <div className="font-serif text-sm text-[color:var(--color-gold)]">
+                  Step 0{i + 1}
+                </div>
                 <div className="mt-2 font-serif text-xl">{s.t}</div>
                 <p className="mt-2 text-sm text-muted-foreground">{s.b}</p>
               </li>
@@ -339,10 +412,14 @@ function CarrierSection() {
     <section className="border-t border-border bg-primary text-primary-foreground">
       <div className="container-page py-24">
         <span className="eyebrow text-primary-foreground/70">Solve</span>
-        <h2 className="mt-3 font-serif text-4xl leading-tight md:text-5xl">Finding your best coverage.</h2>
+        <h2 className="mt-3 font-serif text-4xl leading-tight md:text-5xl">
+          Finding your best coverage.
+        </h2>
         <div className="mt-14 grid gap-10 md:grid-cols-[1.1fr_1fr] md:gap-16">
           <div>
-            <h3 className="font-serif text-xl text-[color:var(--color-gold)]">Carrier Selection Criteria</h3>
+            <h3 className="font-serif text-xl text-[color:var(--color-gold)]">
+              Carrier Selection Criteria
+            </h3>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               {carrierCriteria.map((c) => (
                 <div key={c.t} className="rounded-md border border-primary-foreground/15 p-5">
@@ -353,19 +430,27 @@ function CarrierSection() {
             </div>
           </div>
           <div>
-            <h3 className="font-serif text-xl text-[color:var(--color-gold)]">The value of trusted carriers</h3>
+            <h3 className="font-serif text-xl text-[color:var(--color-gold)]">
+              The value of trusted carriers
+            </h3>
             <dl className="mt-6 space-y-5">
               <div>
                 <dt className="font-serif text-lg">Cost Savings</dt>
-                <dd className="text-sm text-primary-foreground/75">Multiple quotes often result in direct premium savings.</dd>
+                <dd className="text-sm text-primary-foreground/75">
+                  Multiple quotes often result in direct premium savings.
+                </dd>
               </div>
               <div>
                 <dt className="font-serif text-lg">Market Creation</dt>
-                <dd className="text-sm text-primary-foreground/75">Carrier relationships establish new markets for hard-to-place coverages.</dd>
+                <dd className="text-sm text-primary-foreground/75">
+                  Carrier relationships establish new markets for hard-to-place coverages.
+                </dd>
               </div>
               <div>
                 <dt className="font-serif text-lg">Streamlined Portfolios</dt>
-                <dd className="text-sm text-primary-foreground/75">Consolidating coverage under fewer carriers unlocks comprehensive protection.</dd>
+                <dd className="text-sm text-primary-foreground/75">
+                  Consolidating coverage under fewer carriers unlocks comprehensive protection.
+                </dd>
               </div>
             </dl>
           </div>
@@ -407,16 +492,24 @@ function Team() {
           {team.map((p) => (
             <article key={p.name} className="bg-background p-8">
               <div className="font-serif text-xl">{p.name}</div>
-              <div className="mt-1 text-xs uppercase tracking-[0.18em] text-[color:var(--color-gold)]">{p.role}</div>
+              <div className="mt-1 text-xs uppercase tracking-[0.18em] text-[color:var(--color-gold)]">
+                {p.role}
+              </div>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{p.bio}</p>
               <div className="mt-5 space-y-1 text-sm">
                 {p.phone && (
-                  <a href={`tel:${p.phone.replace(/\./g, "")}`} className="block text-foreground/80 hover:text-[color:var(--color-gold)]">
+                  <a
+                    href={`tel:${p.phone.replace(/\./g, "")}`}
+                    className="block text-foreground/80 hover:text-[color:var(--color-gold)]"
+                  >
                     {p.phone}
                   </a>
                 )}
                 {p.email && (
-                  <a href={`mailto:${p.email}`} className="block text-foreground/80 hover:text-[color:var(--color-gold)]">
+                  <a
+                    href={`mailto:${p.email}`}
+                    className="block text-foreground/80 hover:text-[color:var(--color-gold)]"
+                  >
                     {p.email}
                   </a>
                 )}
@@ -437,14 +530,17 @@ function Stats() {
         <div className="mt-12 grid gap-px overflow-hidden rounded-md bg-border sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s) => (
             <div key={s.l} className="bg-card p-8">
-              <div className="font-serif text-5xl leading-none text-[color:var(--color-gold)]">{s.n}</div>
+              <div className="font-serif text-5xl leading-none text-[color:var(--color-gold)]">
+                {s.n}
+              </div>
               <div className="mt-4 font-serif text-lg">{s.l}</div>
               <p className="mt-2 text-sm text-muted-foreground">{s.s}</p>
             </div>
           ))}
         </div>
         <p className="mt-10 max-w-3xl text-muted-foreground">
-          Our diverse clientele includes nonprofits, schools, healthcare providers, advocacy groups, and arts organizations — each receiving coverage as unique as their mission.
+          Our diverse clientele includes nonprofits, schools, healthcare providers, advocacy groups,
+          and arts organizations — each receiving coverage as unique as their mission.
         </p>
       </div>
     </section>
@@ -456,10 +552,10 @@ function Quote() {
     <section id="quote" className="border-t border-border bg-primary text-primary-foreground">
       <div className="container-page py-24">
         <span className="eyebrow text-primary-foreground/70">Get a Quote</span>
-        <h2 className="mt-3 font-serif text-4xl leading-tight md:text-5xl">Start your coverage review today.</h2>
-        <p className="mt-4 max-w-2xl text-primary-foreground/80">
-          What we need from you to begin.
-        </p>
+        <h2 className="mt-3 font-serif text-4xl leading-tight md:text-5xl">
+          Start your coverage review today.
+        </h2>
+        <p className="mt-4 max-w-2xl text-primary-foreground/80">What we need from you to begin.</p>
         <ol className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {quoteSteps.map((s) => (
             <li key={s.n} className="rounded-md border border-primary-foreground/15 p-6">
@@ -471,13 +567,21 @@ function Quote() {
         </ol>
         <div className="mt-12 grid gap-8 md:grid-cols-[1.3fr_1fr] md:items-end">
           <p className="rule-gold text-primary-foreground/90">
-            We review existing policies and provide tailored coverage options — never a one-size-fits-all solution. As an independent agency, we represent multiple carriers to secure maximum value and avoid overpayment.
+            We review existing policies and provide tailored coverage options — never a
+            one-size-fits-all solution. As an independent agency, we represent multiple carriers to
+            secure maximum value and avoid overpayment.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href="mailto:contactus@swolfways.com" className="rounded-full bg-[color:var(--color-gold)] px-6 py-3 text-sm font-semibold uppercase tracking-wider text-primary transition hover:opacity-90">
+            <a
+              href="mailto:contactus@swolfways.com"
+              className="rounded-full bg-[color:var(--color-gold)] px-6 py-3 text-sm font-semibold uppercase tracking-wider text-primary transition hover:opacity-90"
+            >
               Email Us
             </a>
-            <a href="tel:7737540849" className="rounded-full border border-primary-foreground/30 px-6 py-3 text-sm font-semibold tracking-wide transition hover:border-primary-foreground">
+            <a
+              href="tel:7737540849"
+              className="rounded-full border border-primary-foreground/30 px-6 py-3 text-sm font-semibold tracking-wide transition hover:border-primary-foreground"
+            >
               773·754·0849
             </a>
           </div>
@@ -493,7 +597,11 @@ function Contact() {
       <div className="container-page py-24">
         <SectionHeading eyebrow="Get in Touch" title="Let's talk about your coverage." />
         <div className="mt-12 grid gap-8 md:grid-cols-3">
-          <ContactCard icon="📍" title="Visit Us" lines={["2338 W. Morse Ave, Suite 1C", "Chicago, IL 60645"]} />
+          <ContactCard
+            icon="📍"
+            title="Visit Us"
+            lines={["2338 W. Morse Ave, Suite 1C", "Chicago, IL 60645"]}
+          />
           <ContactCard
             icon="📞"
             title="Call Us"
@@ -508,13 +616,25 @@ function Contact() {
           />
         </div>
         <div className="mt-10 rounded-md border border-border bg-card p-8">
-          <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Direct team contacts</div>
+          <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+            Direct team contacts
+          </div>
           <div className="mt-4 grid gap-x-8 gap-y-3 text-sm sm:grid-cols-2 lg:grid-cols-3">
-            <a className="hover:text-[color:var(--color-gold)]" href="mailto:polly@swolfways.com">Polly Kosyla</a>
-            <a className="hover:text-[color:var(--color-gold)]" href="mailto:charlie@swolfways.com">Charlie Kosyla</a>
-            <a className="hover:text-[color:var(--color-gold)]" href="mailto:trey@swolfways.com">Trey Elder</a>
-            <a className="hover:text-[color:var(--color-gold)]" href="mailto:john@swolfways.com">John Blockinger</a>
-            <a className="hover:text-[color:var(--color-gold)]" href="mailto:alex@swolfways.com">Alex Averbach</a>
+            <a className="hover:text-[color:var(--color-gold)]" href="mailto:polly@swolfways.com">
+              Polly Kosyla
+            </a>
+            <a className="hover:text-[color:var(--color-gold)]" href="mailto:charlie@swolfways.com">
+              Charlie Kosyla
+            </a>
+            <a className="hover:text-[color:var(--color-gold)]" href="mailto:trey@swolfways.com">
+              Trey Elder
+            </a>
+            <a className="hover:text-[color:var(--color-gold)]" href="mailto:john@swolfways.com">
+              John Blockinger
+            </a>
+            <a className="hover:text-[color:var(--color-gold)]" href="mailto:alex@swolfways.com">
+              Alex Averbach
+            </a>
           </div>
         </div>
         <blockquote className="mt-16 max-w-3xl rule-gold">
@@ -547,12 +667,20 @@ function ContactCard({
       <div className="mt-3 text-xs uppercase tracking-[0.18em] text-muted-foreground">{title}</div>
       <div className="mt-3 space-y-1">
         {lines.map((l) => (
-          <div key={l} className="font-serif text-lg">{l}</div>
+          <div key={l} className="font-serif text-lg">
+            {l}
+          </div>
         ))}
       </div>
     </>
   );
-  const cls = "block rounded-md border border-border bg-card p-8 transition hover:border-[color:var(--color-gold)]";
-  return href ? <a href={href} className={cls}>{inner}</a> : <div className={cls}>{inner}</div>;
+  const cls =
+    "block rounded-md border border-border bg-card p-8 transition hover:border-[color:var(--color-gold)]";
+  return href ? (
+    <a href={href} className={cls}>
+      {inner}
+    </a>
+  ) : (
+    <div className={cls}>{inner}</div>
+  );
 }
-
