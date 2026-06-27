@@ -9,17 +9,33 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as Unemployment1RouteImport } from './routes/unemployment-1'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
+import { Route as SocialFeedDotjsonRouteImport } from './routes/social-feed[.]json'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as RssDotxmlRouteImport } from './routes/rss[.]xml'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AccessibilityStatementRouteImport } from './routes/accessibility-statement'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SolutionsNonprofitInsuranceCostGuideRouteImport } from './routes/solutions.nonprofit-insurance-cost-guide'
 import { Route as SolutionsDoInsuranceRouteImport } from './routes/solutions.do-insurance'
+import { Route as PostLegacySlugRouteImport } from './routes/post.$legacySlug'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
+const Unemployment1Route = Unemployment1RouteImport.update({
+  id: '/unemployment-1',
+  path: '/unemployment-1',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
   path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SocialFeedDotjsonRoute = SocialFeedDotjsonRouteImport.update({
+  id: '/social-feed.json',
+  path: '/social-feed.json',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -27,9 +43,19 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RssDotxmlRoute = RssDotxmlRouteImport.update({
+  id: '/rss.xml',
+  path: '/rss.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   id: '/privacy-policy',
   path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AccessibilityStatementRoute = AccessibilityStatementRouteImport.update({
@@ -53,22 +79,44 @@ const SolutionsDoInsuranceRoute = SolutionsDoInsuranceRouteImport.update({
   path: '/solutions/do-insurance',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PostLegacySlugRoute = PostLegacySlugRouteImport.update({
+  id: '/post/$legacySlug',
+  path: '/post/$legacySlug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/accessibility-statement': typeof AccessibilityStatementRoute
+  '/blog': typeof BlogRouteWithChildren
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/rss.xml': typeof RssDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/social-feed.json': typeof SocialFeedDotjsonRoute
   '/testimonials': typeof TestimonialsRoute
+  '/unemployment-1': typeof Unemployment1Route
+  '/blog/$slug': typeof BlogSlugRoute
+  '/post/$legacySlug': typeof PostLegacySlugRoute
   '/solutions/do-insurance': typeof SolutionsDoInsuranceRoute
   '/solutions/nonprofit-insurance-cost-guide': typeof SolutionsNonprofitInsuranceCostGuideRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/accessibility-statement': typeof AccessibilityStatementRoute
+  '/blog': typeof BlogRouteWithChildren
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/rss.xml': typeof RssDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/social-feed.json': typeof SocialFeedDotjsonRoute
   '/testimonials': typeof TestimonialsRoute
+  '/unemployment-1': typeof Unemployment1Route
+  '/blog/$slug': typeof BlogSlugRoute
+  '/post/$legacySlug': typeof PostLegacySlugRoute
   '/solutions/do-insurance': typeof SolutionsDoInsuranceRoute
   '/solutions/nonprofit-insurance-cost-guide': typeof SolutionsNonprofitInsuranceCostGuideRoute
 }
@@ -76,9 +124,15 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/accessibility-statement': typeof AccessibilityStatementRoute
+  '/blog': typeof BlogRouteWithChildren
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/rss.xml': typeof RssDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/social-feed.json': typeof SocialFeedDotjsonRoute
   '/testimonials': typeof TestimonialsRoute
+  '/unemployment-1': typeof Unemployment1Route
+  '/blog/$slug': typeof BlogSlugRoute
+  '/post/$legacySlug': typeof PostLegacySlugRoute
   '/solutions/do-insurance': typeof SolutionsDoInsuranceRoute
   '/solutions/nonprofit-insurance-cost-guide': typeof SolutionsNonprofitInsuranceCostGuideRoute
 }
@@ -87,27 +141,45 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/accessibility-statement'
+    | '/blog'
     | '/privacy-policy'
+    | '/rss.xml'
     | '/sitemap.xml'
+    | '/social-feed.json'
     | '/testimonials'
+    | '/unemployment-1'
+    | '/blog/$slug'
+    | '/post/$legacySlug'
     | '/solutions/do-insurance'
     | '/solutions/nonprofit-insurance-cost-guide'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/accessibility-statement'
+    | '/blog'
     | '/privacy-policy'
+    | '/rss.xml'
     | '/sitemap.xml'
+    | '/social-feed.json'
     | '/testimonials'
+    | '/unemployment-1'
+    | '/blog/$slug'
+    | '/post/$legacySlug'
     | '/solutions/do-insurance'
     | '/solutions/nonprofit-insurance-cost-guide'
   id:
     | '__root__'
     | '/'
     | '/accessibility-statement'
+    | '/blog'
     | '/privacy-policy'
+    | '/rss.xml'
     | '/sitemap.xml'
+    | '/social-feed.json'
     | '/testimonials'
+    | '/unemployment-1'
+    | '/blog/$slug'
+    | '/post/$legacySlug'
     | '/solutions/do-insurance'
     | '/solutions/nonprofit-insurance-cost-guide'
   fileRoutesById: FileRoutesById
@@ -115,20 +187,39 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccessibilityStatementRoute: typeof AccessibilityStatementRoute
+  BlogRoute: typeof BlogRouteWithChildren
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  RssDotxmlRoute: typeof RssDotxmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SocialFeedDotjsonRoute: typeof SocialFeedDotjsonRoute
   TestimonialsRoute: typeof TestimonialsRoute
+  Unemployment1Route: typeof Unemployment1Route
+  PostLegacySlugRoute: typeof PostLegacySlugRoute
   SolutionsDoInsuranceRoute: typeof SolutionsDoInsuranceRoute
   SolutionsNonprofitInsuranceCostGuideRoute: typeof SolutionsNonprofitInsuranceCostGuideRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/unemployment-1': {
+      id: '/unemployment-1'
+      path: '/unemployment-1'
+      fullPath: '/unemployment-1'
+      preLoaderRoute: typeof Unemployment1RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/testimonials': {
       id: '/testimonials'
       path: '/testimonials'
       fullPath: '/testimonials'
       preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/social-feed.json': {
+      id: '/social-feed.json'
+      path: '/social-feed.json'
+      fullPath: '/social-feed.json'
+      preLoaderRoute: typeof SocialFeedDotjsonRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -138,11 +229,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/rss.xml': {
+      id: '/rss.xml'
+      path: '/rss.xml'
+      fullPath: '/rss.xml'
+      preLoaderRoute: typeof RssDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy-policy': {
       id: '/privacy-policy'
       path: '/privacy-policy'
       fullPath: '/privacy-policy'
       preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/accessibility-statement': {
@@ -173,15 +278,44 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolutionsDoInsuranceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/post/$legacySlug': {
+      id: '/post/$legacySlug'
+      path: '/post/$legacySlug'
+      fullPath: '/post/$legacySlug'
+      preLoaderRoute: typeof PostLegacySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
   }
 }
+
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccessibilityStatementRoute: AccessibilityStatementRoute,
+  BlogRoute: BlogRouteWithChildren,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
+  RssDotxmlRoute: RssDotxmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SocialFeedDotjsonRoute: SocialFeedDotjsonRoute,
   TestimonialsRoute: TestimonialsRoute,
+  Unemployment1Route: Unemployment1Route,
+  PostLegacySlugRoute: PostLegacySlugRoute,
   SolutionsDoInsuranceRoute: SolutionsDoInsuranceRoute,
   SolutionsNonprofitInsuranceCostGuideRoute:
     SolutionsNonprofitInsuranceCostGuideRoute,

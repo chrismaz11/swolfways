@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import heroImg from "@/assets/hero.jpg";
+import { latestBlogPosts } from "@/lib/blog";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -10,9 +11,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Independent insurance agency serving 800+ nonprofits since 1988. Structure · Solve · Serve. Property & casualty, employee benefits, unemployment, and RFP services.",
+          "Independent insurance agency serving 800+ nonprofits since 1988. Property and casualty, employee benefits, unemployment cost strategies, and RFP support for 501(c)(3) organizations.",
       },
-      { property: "og:title", content: "S. Wolf & Associates — We Insure Nonprofits" },
+      {
+        property: "og:title",
+        content: "S. Wolf & Associates — Nonprofit Insurance, Benefits & Unemployment Solutions",
+      },
       {
         property: "og:description",
         content:
@@ -219,14 +223,16 @@ function Hero() {
         <div>
           <span className="eyebrow">Structure · Solve · Serve</span>
           <h1 className="mt-5 font-serif text-5xl leading-[1.02] tracking-tight md:text-7xl">
-            We insure
+            Nonprofit insurance,
             <br />
-            <em className="font-serif italic text-[color:var(--color-gold)]">nonprofits.</em>
+            <em className="font-serif italic text-[color:var(--color-gold)]">
+              benefits, and unemployment solutions.
+            </em>
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            S. Wolf & Associates is an independent insurance agency dedicated exclusively to the
-            nonprofit sector — understanding your mission, crafting the right coverage, and standing
-            beside your organization at every step.
+            S. Wolf & Associates helps 501(c)(3) organizations manage property and casualty
+            coverage, employee benefits, unemployment cost strategy, and insurance RFPs with
+            guidance shaped around how nonprofits actually operate.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -358,11 +364,38 @@ function Solutions() {
               Nonprofit Insurance Cost Guide
             </a>
             <a
+              href="/unemployment-1"
+              className="rounded-full border border-[color:var(--color-brass)] bg-[color:var(--color-brass)] px-5 py-2 text-sm font-semibold uppercase tracking-wider text-primary transition hover:opacity-90"
+            >
+              Unemployment Savings Guide
+            </a>
+            <a
               href="/solutions/do-insurance"
               className="rounded-full border border-foreground/20 px-5 py-2 text-sm font-semibold uppercase tracking-wider text-foreground transition hover:bg-foreground/5"
             >
               D&O Insurance Guide
             </a>
+            <a
+              href="/blog"
+              className="rounded-full border border-foreground/20 px-5 py-2 text-sm font-semibold uppercase tracking-wider text-foreground transition hover:bg-foreground/5"
+            >
+              Read the Blog
+            </a>
+          </div>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {latestBlogPosts.map((post) => (
+              <a
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="rounded-xl border border-foreground/10 bg-[color:var(--color-navy-900)]/40 p-5 transition hover:border-foreground/20"
+              >
+                <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                  {post.category}
+                </div>
+                <div className="mt-3 font-serif text-xl tracking-tight">{post.title}</div>
+                <p className="mt-3 text-sm text-muted-foreground">{post.excerpt}</p>
+              </a>
+            ))}
           </div>
         </div>
       </div>

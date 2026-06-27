@@ -3,15 +3,20 @@ import { Link } from "@tanstack/react-router";
 const nav = [
   { label: "About", href: "/#about" },
   { label: "Solutions", href: "/#solutions" },
+  { label: "Approach", href: "/#approach" },
+  { label: "Team", href: "/#team" },
+  { label: "Testimonials", href: "/testimonials" },
+  { label: "Contact", href: "/#contact" },
+];
+
+const resources = [
+  { label: "Blog", href: "/blog" },
+  { label: "Unemployment Savings", href: "/unemployment-1" },
   { label: "D&O Guide", href: "/solutions/do-insurance" },
   {
     label: "Cost Guide",
     href: "/solutions/nonprofit-insurance-cost-guide",
   },
-  { label: "Approach", href: "/#approach" },
-  { label: "Team", href: "/#team" },
-  { label: "Testimonials", href: "/testimonials" },
-  { label: "Contact", href: "/#contact" },
 ];
 
 export function Header() {
@@ -24,7 +29,7 @@ export function Header() {
             & Associates
           </span>
         </Link>
-        <nav className="hidden gap-8 md:flex">
+        <nav className="hidden items-center gap-6 md:flex">
           {nav.map((n) => (
             <a
               key={n.href}
@@ -34,6 +39,22 @@ export function Header() {
               {n.label}
             </a>
           ))}
+          <details className="group relative">
+            <summary className="list-none cursor-pointer text-sm text-muted-foreground transition hover:text-foreground">
+              Resources
+            </summary>
+            <div className="absolute right-0 top-full mt-3 min-w-56 rounded-xl border border-border bg-card p-2 shadow-lg">
+              {resources.map((resource) => (
+                <a
+                  key={resource.href}
+                  href={resource.href}
+                  className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition hover:bg-accent hover:text-foreground"
+                >
+                  {resource.label}
+                </a>
+              ))}
+            </div>
+          </details>
         </nav>
         <a
           href="/#quote"
